@@ -14,14 +14,14 @@ def detect_washer_by_color(frame, lower_color, upper_color):
         minDist=50, 
         param1=50, 
         param2=30, 
-        minRadius=20, 
-        maxRadius=150
+        minRadius=40, 
+        maxRadius=55
     )
     return circles, color_result
 
 color_ranges = {
     "blue": (np.array([100, 150, 50]), np.array([140, 255, 255])),
-    "deep_teal": (np.array([60, 50, 50]), np.array([95, 255, 255])),
+    "teal": (np.array([60, 50, 50]), np.array([95, 255, 255])),
     "red": (np.array([0, 150, 50]), np.array([10, 255, 255]))
 }
 
@@ -49,10 +49,10 @@ while True:
             cv2.circle(frame, (x, y), 2, (0, 255, 255), 3)
 
         if washer_status == "blue":
-            detection_message = "Blue washer detected, go for deep teal washer"
-            washer_status = "deep_teal"
-        elif washer_status == "deep_teal":
-            detection_message = "Deep teal washer detected, go for red"
+            detection_message = "Blue washer detected"
+            washer_status = "teal"
+        elif washer_status == "teal":
+            detection_message = "Deep teal washer detected"
             washer_status = "red"
         elif washer_status == "red":
             detection_message = "Red washer detected"
