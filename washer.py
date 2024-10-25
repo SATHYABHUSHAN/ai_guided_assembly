@@ -21,7 +21,7 @@ def detect_washer_by_color(frame, lower_color, upper_color):
 
 color_ranges = {
     "blue": (np.array([100, 150, 50]), np.array([140, 255, 255])),
-    "teal": (np.array([60, 50, 50]), np.array([95, 255, 255])),
+    "teal": np.array([90, 50, 50]), np.array([105, 255, 150])),
     "red": (np.array([0, 150, 50]), np.array([10, 255, 255]))
 }
 
